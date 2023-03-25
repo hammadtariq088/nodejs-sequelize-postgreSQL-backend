@@ -7,8 +7,8 @@ const Op = db.Sequelize.Op;
 
 // Create a new Customer
 router.post("/", async (req, res) => {
-  // Create a Customer
   const payload = req.body;
+  // Validate request
   const validatePayload = createCustomerSchema(payload);
   const { error } = validatePayload;
   if (error) {
@@ -110,7 +110,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-// Create a new Tutorial
+// Delete all customers
 router.delete("/", (req, res) => {
   Customer.destroy({
     where: {},
